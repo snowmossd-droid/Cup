@@ -1,5 +1,4 @@
 fortune-level: 3
-simulated-tool: IRON_PICKAXE
 ores:
   - COAL_ORE
   - DEEPSLATE_COAL_ORE
