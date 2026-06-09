@@ -12,11 +12,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Extract
-        run: unzip Cup.zip
+        run: unzip -o *.zip
 
-      - name: Upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: extracted
-          path: .
-          
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Extract zip" || echo "Nothing to commit"
+          git push
