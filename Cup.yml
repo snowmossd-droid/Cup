@@ -1,0 +1,21 @@
+name: Unzip
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract
+        run: unzip Cup.zip
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: extracted
+          path: .
