@@ -43,11 +43,8 @@ public class MiningListener implements Listener {
         if (hand.containsEnchantment(Enchantment.SILK_TOUCH)) return;
 
         int level = plugin.getConfig().getInt("fortune-level", 3);
-        String toolName = plugin.getConfig().getString("simulated-tool", "IRON_PICKAXE");
-        Material toolMat = Material.matchMaterial(toolName);
-        if (toolMat == null) toolMat = Material.IRON_PICKAXE;
 
-        ItemStack fakeTool = new ItemStack(toolMat);
+        ItemStack fakeTool = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemMeta meta = fakeTool.getItemMeta();
         if (meta != null) {
             meta.addEnchant(Enchantment.FORTUNE, level, true);
@@ -61,4 +58,4 @@ public class MiningListener implements Listener {
             block.getWorld().dropItemNaturally(block.getLocation(), drop);
         }
     }
-}
+            }
